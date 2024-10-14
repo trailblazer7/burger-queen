@@ -1,101 +1,185 @@
-import Image from "next/image";
+import { Title, Container, TopBar, Filters } from '@/components/shared';
+import ProductsListGroup, {
+  ProductsListGroupType,
+} from '@/components/shared/products-list-group';
+
+const products_groups: ProductsListGroupType[] = [
+  {
+    title: 'Burgers',
+    categoryId: 1,
+    items: [
+      {
+        id: 1,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/texas-beef-desktop-07c6b01478eb4243f0e35564a4efe75a.webp',
+      },
+      {
+        id: 2,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/long-cheeseburger-desktop-4873be6f16012072977c3ae73d32e985.webp',
+      },
+      {
+        id: 3,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/chili-cheese-double-beef-desktop-ab557a3215b42dffd7cfffd66b8bd4af.webp',
+      },
+      {
+        id: 4,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/bacon-king-desktop-f82f4dfe6e9e09616a5e4acb449ee4e8.webp',
+      },
+      {
+        id: 5,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/cheeseburger-desktop-328f089351dae21d4d0df2d6c1eb32a3.webp',
+      },
+      {
+        id: 6,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/texas-beef-desktop-07c6b01478eb4243f0e35564a4efe75a.webp',
+      },
+      {
+        id: 7,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/long-cheeseburger-desktop-4873be6f16012072977c3ae73d32e985.webp',
+      },
+      {
+        id: 8,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/chili-cheese-double-beef-desktop-ab557a3215b42dffd7cfffd66b8bd4af.webp',
+      },
+      {
+        id: 9,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/bacon-king-desktop-f82f4dfe6e9e09616a5e4acb449ee4e8.webp',
+      },
+      {
+        id: 10,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/cheeseburger-desktop-328f089351dae21d4d0df2d6c1eb32a3.webp',
+      },
+    ],
+  },
+  {
+    title: 'Vegetables',
+    categoryId: 2,
+    items: [
+      {
+        id: 11,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/texas-beef-desktop-07c6b01478eb4243f0e35564a4efe75a.webp',
+      },
+      {
+        id: 12,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/long-cheeseburger-desktop-4873be6f16012072977c3ae73d32e985.webp',
+      },
+      {
+        id: 13,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/chili-cheese-double-beef-desktop-ab557a3215b42dffd7cfffd66b8bd4af.webp',
+      },
+      {
+        id: 14,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/bacon-king-desktop-f82f4dfe6e9e09616a5e4acb449ee4e8.webp',
+      },
+      {
+        id: 15,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/cheeseburger-desktop-328f089351dae21d4d0df2d6c1eb32a3.webp',
+      },
+      {
+        id: 16,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/texas-beef-desktop-07c6b01478eb4243f0e35564a4efe75a.webp',
+      },
+      {
+        id: 17,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/long-cheeseburger-desktop-4873be6f16012072977c3ae73d32e985.webp',
+      },
+      {
+        id: 18,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/chili-cheese-double-beef-desktop-ab557a3215b42dffd7cfffd66b8bd4af.webp',
+      },
+      {
+        id: 19,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/bacon-king-desktop-f82f4dfe6e9e09616a5e4acb449ee4e8.webp',
+      },
+      {
+        id: 20,
+        name: 'Bekonator',
+        price: 200,
+        imageUrl:
+          'https://www.burgerking.lv/images/optimized/products/cheeseburger-desktop-328f089351dae21d4d0df2d6c1eb32a3.webp',
+      },
+    ],
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <Container className="mt-6">
+        <Title size="lg" text="All Burgers" className="font-extrabold"></Title>
+      </Container>
+      <TopBar />
+      <Container className="mt-4 flex gap-6">
+        <div className="w-[250px]">
+          <Filters />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <div className="flex-1 flex flex-col gap-10">
+          {products_groups.map((group) => (
+            <ProductsListGroup
+              key={group.categoryId}
+              title={group.title}
+              categoryId={group.categoryId}
+              items={group.items}
+            />
+          ))}
+        </div>
+      </Container>
+    </>
   );
 }
